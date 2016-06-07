@@ -1,6 +1,6 @@
 class SectionController < ApplicationController
 
-  layout false 
+  layout "admin"
 
   def index
     @sections = Section.order("position ASC")

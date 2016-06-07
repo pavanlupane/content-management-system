@@ -1,6 +1,6 @@
 class DemoController < ApplicationController
   
-  layout false
+  layout 'application'
   
   def index
   	#render('hello')
@@ -20,6 +20,10 @@ class DemoController < ApplicationController
 
   def pavan
   	redirect_to(  'http://www.pavanlupane.com')
+  end
+
+  def text_helpers
+
   end
 
 end

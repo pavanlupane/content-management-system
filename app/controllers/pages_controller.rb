@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   
-  layout false
+  layout "admin"
 
   #displays list of items
   def index
