@@ -9,7 +9,7 @@
 		<tr class="header">
 			<th>&nbsp;</th>
 			<th>Page</th>
-			<th>Subject Id</th>
+			<th>Subject</th>
 			<th>Visible</th>
 			<th>Permalink</th>
 			<th>Actions</th>
@@ -18,7 +18,7 @@
 			<tr>
 				<td><%= page.position %></td>
 	      		<td><%= page.name %></td>
-	      		<td><%= page.subject_id %></td>
+	      		<td><%= page.subject.name if page.subject %></td>
 	      		<td class="center"><%= status_tag(page.visible) %></td>
 				<td class= "center"><%= page.permalink%></td>
 				<td class="actions">

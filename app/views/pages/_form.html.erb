@@ -1,22 +1,22 @@
 <table summary="Page form fields">
 			<tr>
-				<th>Name</th>
+				<th><%= f.label(:name, "Name") %></th>
 				<th><%= f.text_field(:name) %></th>
 			</tr>
 				<tr>
-				<th>Subject Id</th>
-				<th><%= f.text_field(:subject_id) %></th>
+				<th><%= f.label(:subject_id, "Subject") %></th>
+				<th><%= f.select(:subject_id,@subjects.map {|s| [s.name,s.id]}) %></th>
 			</tr>
 			<tr>
-				<th>Position</th>
-				<th><%= f.text_field(:position) %></th>
+				<th><%= f.label(:position) %></th>
+				<th><%= f.select(:position, 1..@page_count) %></th>
 			</tr>
 			<tr>
-				<th>Visible</th>
-				<th><%= f.text_field(:visible)%></th>
+				<th><%= f.label(:visible) %></th>
+				<th><%= f.check_box(:visible)%></th>
 			</tr>
 			<tr>
-				<th>Permalink</th>
+				<th><%= f.label(:permalink) %></th>
 				<th><%= f.text_field(:permalink) %></th>
 			</tr>
 		</table>

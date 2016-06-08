@@ -12,6 +12,8 @@ class SectionController < ApplicationController
 
   def new
     @section = Section.new({:name => "Tommy Trojan"})
+    @pages = Page.order('position ASC')
+    @section_count = Section.count + 1
   end
 
   def create
@@ -24,12 +26,16 @@ class SectionController < ApplicationController
       redirect_to(:action => 'index')
     else
       #If save fails, redisplay the form so user can fix problems
+      @pages = Page.order('position ASC')
+      @section_count = Section.count + 1
       render('new')
     end
   end
 
   def edit
     @section = Section.find(params[:id])
+    @pages = Page.order('position ASC')
+    @section_count = Section.count
   end
 
   def update
@@ -43,6 +49,8 @@ class SectionController < ApplicationController
       redirect_to(:action => 'show', :id => @section.id)
     else
       #If update fails, redisplay the form so user can fix problems
+      @pages = Page.order('position ASC')
+      @section_count = Section.count
       render('edit')
     end
   end
@@ -60,6 +68,6 @@ class SectionController < ApplicationController
 
   private
     def section_params
-      params.require(:section).permit(:name, :page_id, :position,:visible,:content_type)
+      params.require(:section).permit(:name, :page_id, :position,:visible,:content_type, :content)
     end
 end
