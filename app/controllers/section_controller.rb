@@ -2,6 +2,8 @@ class SectionController < ApplicationController
 
   layout "admin"
 
+  before_action :confirm_logged_in
+  
   def index
     @sections = Section.order("position ASC")
   end

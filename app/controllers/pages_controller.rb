@@ -2,6 +2,8 @@ class PagesController < ApplicationController
   
   layout "admin"
 
+  before_action :confirm_logged_in
+  
   #displays list of items
   def index
     @pages = Page.order("position ASC")
